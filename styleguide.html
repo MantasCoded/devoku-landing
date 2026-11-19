@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Devoku — style guide</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <style>
+    .sg-head {
+      padding-block: clamp(2rem, 5vw, 4rem) clamp(1rem, 2vw, 2rem);
+      border-bottom: 1px solid var(--c-line);
+    }
+    .sg-head h1 {
+      font-size: var(--fs-h2);
+      font-weight: 500;
+      letter-spacing: var(--ls-h2);
+      line-height: var(--lh-h2);
+      margin-top: var(--sp-4);
+    }
+    .sg-head p {
+      margin-top: var(--sp-4);
+      max-width: 60ch;
+      color: var(--c-body);
+    }
+    .sg-block {
+      padding-block: clamp(2rem, 4vw, 3.5rem);
+      border-bottom: 1px solid var(--c-line-soft);
+    }
+    .sg-block > h2 {
+      font-size: var(--fs-h5);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: var(--sp-6);
+    }
+    .sg-note {
+      margin-top: var(--sp-4);
+      max-width: 70ch;
+      font-size: var(--fs-sm);
+      color: var(--c-muted);
+    }
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+      gap: var(--sp-4);
+    }
+    .swatch {
+      border: 1px solid var(--c-line-soft);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      font-family: var(--font-technical);
+      font-size: var(--fs-2xs);
+    }
+    .swatch__chip {
+      height: 64px;
+      border-bottom: 1px solid var(--c-line-soft);
+    }
+    .swatch__meta {
+      padding: var(--sp-3);
+      display: grid;
+      gap: 2px;
+    }
+    .swatch__meta b {
+      font-weight: 500;
+      font-family: var(--font-ui);
+      font-size: var(--fs-xs);
+    }
+    .swatch__meta span {
+      color: var(--c-muted);
+    }
+    .type-row {
+      display: grid;
+      grid-template-columns: 9rem 1fr;
+      gap: var(--sp-6);
+      align-items: baseline;
+      padding-block: var(--sp-4);
+      border-bottom: 1px dashed var(--c-line-soft);
+    }
+    .type-row:last-child {
+      border-bottom: 0;
+    }
+    .type-row code {
+      font-family: var(--font-technical);
+      font-size: var(--fs-2xs);
+      color: var(--c-muted);
+    }
+    .space-row {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+      padding-block: var(--sp-2);
+      font-family: var(--font-technical);
+      font-size: var(--fs-2xs);
+      color: var(--c-muted);
+    }
+    .space-bar {
+      height: 12px;
+      background: var(--c-violet);
+      border-radius: 3px;
+    }
+    .radius-row {
+      display: flex;
+      gap: var(--sp-5);
+      flex-wrap: wrap;
+    }
+    .radius-box {
+      width: 96px;
+      height: 96px;
+      background: var(--c-surface-alt);
+      border: 1px solid var(--c-line);
+      display: grid;
+      place-items: end center;
+      padding-bottom: var(--sp-2);
+      font-family: var(--font-technical);
+      font-size: var(--fs-2xs);
+      color: var(--c-muted);
+    }
+    .sg-grid {
+      display: grid;
+      gap: var(--sp-8);
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      align-items: start;
+    }
+    .sg-card {
+      padding: var(--sp-6);
+      border: 1px solid var(--c-line-soft);
+      border-radius: var(--r-lg);
+    }
+    .sg-card h3 {
+      font-size: var(--fs-md);
+      font-weight: 500;
+      margin-bottom: var(--sp-4);
+    }
+    .sg-swatch-row {
+      display: flex;
+      gap: var(--sp-2);
+      flex-wrap: wrap;
+    }
+    @media (max-width: 640px) {
+      .type-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--sp-2);
+      }
+      .type-row p {
+        overflow-wrap: anywhere;
+      }
+      .swatches {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+      .sg-head p,
+      .sg-note {
+        overflow-wrap: anywhere;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header class="sg-head">
+      <a class="logo-lockup" href="index.html" aria-label="Devoku — home">
+        <svg viewBox="0 0 23 23" aria-hidden="true" focusable="false">
+          <rect width="23" height="23" rx="5.5" fill="#0a0a0a"></rect>
+          <rect x="2" y="3" width="6" height="4" rx="1" fill="#ef4444"></rect>
+          <rect x="9" y="3" width="6" height="4" rx="1" fill="#f59e0b"></rect>
+          <rect x="15" y="3" width="6" height="4" rx="1" fill="#22c55e"></rect>
+          <rect x="5" y="8" width="6" height="4" rx="1" fill="#3b82f6"></rect>
+          <rect x="12" y="8" width="6" height="4" rx="1" fill="#8b5cf6"></rect>
+          <rect x="2" y="13" width="6" height="4" rx="1" fill="#ec4899"></rect>
+          <rect x="9" y="13" width="6" height="4" rx="1" fill="#14b8a6"></rect>
+          <rect x="15" y="13" width="6" height="4" rx="1" fill="#f97316"></rect>
+          <rect x="5" y="18" width="6" height="4" rx="1" fill="#84cc16"></rect>
+          <rect x="12" y="18" width="6" height="4" rx="1" fill="#06b6d4"></rect>
+        </svg>
+        <span>Devoku</span>
+      </a>
+      <h1>Style guide</h1>
+      <p>Every value on the landing page resolves through <code>assets/css/tokens.css</code>. Anything not listed here should not appear in the markup — no raw hex, no magic pixel values.</p>
+    </header>
+
+    <section class="sg-block">
+      <h2>Colour</h2>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch__chip" style="background:#1c1c1c"></div><div class="swatch__meta"><b>--c-ink</b><span>#1c1c1c · headings</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#0a0a0a"></div><div class="swatch__meta"><b>--c-ink-strong</b><span>#0a0a0a · wordmark</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#4a4a4a"></div><div class="swatch__meta"><b>--c-body</b><span>#4a4a4a · 8.9:1</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#525252"></div><div class="swatch__meta"><b>--c-body-soft</b><span>#525252 · 7.8:1</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#6d6d6d"></div><div class="swatch__meta"><b>--c-muted</b><span>#6d6d6d · 5.2:1</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#e7e7e7"></div><div class="swatch__meta"><b>--c-line</b><span>#e7e7e7 · hairlines</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#edeceb"></div><div class="swatch__meta"><b>--c-surface-alt</b><span>#edeceb · skeletons</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#e8e5e3"></div><div class="swatch__meta"><b>--c-surface-sunk</b><span>#e8e5e3</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#1e1e1e"></div><div class="swatch__meta"><b>--c-dark</b><span>#1e1e1e · dark cards</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#262626"></div><div class="swatch__meta"><b>--c-dark-raised</b><span>#262626 · windows</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#a3520f"></div><div class="swatch__meta"><b>--c-accent-ink</b><span>#a3520f · 5.6:1</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#fd933a"></div><div class="swatch__meta"><b>--c-accent</b><span>#fd933a · decor only</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#0c6c3c"></div><div class="swatch__meta"><b>--c-success-ink</b><span>#0c6c3c · 6.5:1</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#14a055"></div><div class="swatch__meta"><b>--c-success</b><span>#14a055 · decor only</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#9875f2"></div><div class="swatch__meta"><b>--c-violet</b><span>#9875f2</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#a87feb"></div><div class="swatch__meta"><b>--c-violet-soft</b><span>#a87feb</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#ffdec2"></div><div class="swatch__meta"><b>--c-peach</b><span>#ffdec2</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#82d2a7"></div><div class="swatch__meta"><b>--c-mint</b><span>#82d2a7</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#faae6e"></div><div class="swatch__meta"><b>--c-amber</b><span>#faae6e</span></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#60d496"></div><div class="swatch__meta"><b>--c-green-pill</b><span>#60d496</span></div></div>
+      </div>
+      <p class="sg-note">Contrast ratios are computed against <code>#ffffff</code>. The file's own accents (#fd933a 2.19:1, #14a055 3.38:1) are kept for decorative marks and large text; small copy uses the darker <code>-ink</code> variants.</p>
+    </section>
+
+    <section class="sg-block">
+      <h2>Gradients</h2>
+      <div class="sg-grid">
+        <div class="sg-card"><h3>--grad-surface</h3><div style="height:96px;border-radius:10px;background:var(--grad-surface)"></div></div>
+        <div class="sg-card"><h3>--grad-surface-violet</h3><div style="height:96px;border-radius:10px;background:var(--grad-surface-violet)"></div></div>
+        <div class="sg-card"><h3>--grad-surface-deep</h3><div style="height:96px;border-radius:10px;background:var(--grad-surface-deep)"></div></div>
+        <div class="sg-card"><h3>--grad-brand</h3><div style="height:96px;border-radius:10px;background:var(--grad-brand)"></div></div>
+        <div class="sg-card"><h3>--grad-footer</h3><div style="height:96px;border-radius:10px;background:var(--grad-footer)"></div></div>
+      </div>
+    </section>
+
+    <section class="sg-block">
+      <h2>Type</h2>
+      <div class="type-row"><code>display · 68/71</code><p style="font-size:var(--fs-display);line-height:var(--lh-display);letter-spacing:var(--ls-display);max-width:16ch">AI employees that do the work</p></div>
+      <div class="type-row"><code>h2 · 54/64</code><p style="font-size:var(--fs-h2);line-height:var(--lh-h2);letter-spacing:var(--ls-h2)">Give the task. Your AI team does the rest.</p></div>
+      <div class="type-row"><code>h3 · 48/48</code><p style="font-size:var(--fs-h3);line-height:var(--lh-h3);letter-spacing:var(--ls-h3)">One task. A whole team.</p></div>
+      <div class="type-row"><code>h4 · 36</code><p style="font-size:var(--fs-h4);line-height:var(--lh-h4)">How pricing works</p></div>
+      <div class="type-row"><code>h5 · 30</code><p style="font-size:var(--fs-h5);line-height:1.2">Backups and snapshots</p></div>
+      <div class="type-row"><code>xl · 24</code><p style="font-size:var(--fs-xl)">Do I need to know how to code?</p></div>
+      <div class="type-row"><code>lg · 20</code><p style="font-size:var(--fs-lg)">Each AI employee has its own computer.</p></div>
+      <div class="type-row"><code>body · 18</code><p style="font-size:var(--fs-md)">Send tasks the moment you think of them.</p></div>
+      <div class="type-row"><code>sm · 16</code><p style="font-size:var(--fs-sm);color:var(--c-muted)">A lead agent splits the work. Others research, build and write at the same time.</p></div>
+      <div class="type-row"><code>legal · 13</code><p style="font-size:var(--fs-2xs)">Terms · Privacy · Contact</p></div>
+      <div class="type-row"><code>technical · 16</code><p class="t-technical">Research agent</p></div>
+      <p class="sg-note">Content face: Funnel Sans (self-hosted, OFL). UI face: Google Sans Flex where licensed, falling back to Funnel Sans — see <code>assets/fonts/fonts.css</code>. Technical labels: Geist.</p>
+    </section>
+
+    <section class="sg-block">
+      <h2>Spacing</h2>
+      <div class="space-row"><code>--sp-1</code><div class="space-bar" style="width:var(--sp-1)"></div><span>4px</span></div>
+      <div class="space-row"><code>--sp-2</code><div class="space-bar" style="width:var(--sp-2)"></div><span>8px</span></div>
+      <div class="space-row"><code>--sp-3</code><div class="space-bar" style="width:var(--sp-3)"></div><span>12px</span></div>
+      <div class="space-row"><code>--sp-4</code><div class="space-bar" style="width:var(--sp-4)"></div><span>16px</span></div>
+      <div class="space-row"><code>--sp-6</code><div class="space-bar" style="width:var(--sp-6)"></div><span>24px</span></div>
+      <div class="space-row"><code>--sp-8</code><div class="space-bar" style="width:var(--sp-8)"></div><div class="space-bar" style="width:var(--sp-8);background:#fff;border:1px solid var(--c-line)"></div><span>32px</span></div>
+      <div class="type-row"><p class="sg-note">Spacing derives from a 4px base. Section rhythm is <code>--section-y</code> (64 → 120px, fluid).</p></div>
+      <h2 style="margin-top:var(--sp-8)">Radii</h2>
+      <div class="radius-row">
+        <div class="radius-box" style="border-radius:var(--r-sm)">--r-sm 6</div>
+        <div class="radius-box" style="border-radius:var(--r-md)">--r-md 10</div>
+        <div class="radius-box" style="border-radius:var(--r-lg)">--r-lg 20</div>
+        <div class="radius-box" style="border-radius:var(--r-pill)">pill</div>
+      </div>
+    </section>
+
+    <section class="sg-block">
+      <h2>Buttons</h2>
+      <div class="sg-grid">
+        <div class="sg-card">
+          <h3>Primary</h3>
+          <a class="btn btn--primary" href="#!">Get started</a>
+        </div>
+        <div class="sg-card">
+          <h3>Secondary</h3>
+          <a class="btn btn--secondary" href="#!">Explore use cases</a>
+        </div>
+        <div class="sg-card">
+          <h3>Small (header)</h3>
+          <a class="btn btn--primary btn--sm" href="#!">Get started</a>
+        </div>
+        <div class="sg-card" style="background:var(--c-dark)">
+          <h3 style="color:#fff">On dark</h3>
+          <a class="btn btn--on-dark" href="#!">Explore use cases</a>
+        </div>
+        <div class="sg-card">
+          <h3>Text link</h3>
+          <a class="link-arrow" href="#!">See full pricing
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-block">
+      <h2>Pills &amp; agent tags</h2>
+      <div class="use-cases__filters">
+        <span class="pill pill--active">Marketing</span>
+        <span class="pill">Sales</span>
+        <span class="pill">Engineering</span>
+      </div>
+      <div class="sg-swatch-row" style="margin-top:var(--sp-6)">
+        <span class="agent-pill agent-pill--research">Research agent</span>
+        <span class="agent-pill agent-pill--marketing">Marketing agent</span>
+        <span class="agent-pill agent-pill--dev">Dev agent</span>
+        <span class="agent-pill agent-pill--ready">Launch ready</span>
+      </div>
+      <p class="sg-note">Agent tags are decorative: they reproduce the floating labels inside the product mock-ups and carry no interaction.</p>
+    </section>
+
+    <section class="sg-block">
+      <h2>Lists, skeletons, FAQ</h2>
+      <div class="sg-grid">
+        <div class="sg-card">
+          <h3>Feature bullets</h3>
+          <div class="feature">
+            <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h11l-3-3M20 17H9l3 3"/></svg></span>
+            <div><p class="feature__title">Hand-offs</p><p class="feature__text">Results move between agents, no copying files</p></div>
+          </div>
+        </div>
+        <div class="sg-card">
+          <h3>Checklist</h3>
+          <ul class="checklist">
+            <li class="checklist__item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10.5 8 14.5 16 5.5"/></svg>No waiting between tasks</li>
+            <li class="checklist__item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10.5 8 14.5 16 5.5"/></svg>Agents work as a team</li>
+          </ul>
+        </div>
+        <div class="sg-card">
+          <h3>Skeleton</h3>
+          <div class="skeleton">
+            <span class="skeleton__bar skeleton__bar--head"></span>
+            <span class="skeleton__bar skeleton__bar--mid"></span>
+            <span class="skeleton__bar skeleton__bar--short"></span>
+          </div>
+        </div>
+        <div class="sg-card">
+          <h3>FAQ row</h3>
+          <div class="faq">
+            <details class="faq__item">
+              <summary class="faq__summary">Do I need to know how to code?<span class="faq__icon" aria-hidden="true"></span></summary>
+              <div class="faq__answer"><p>Answer copy pending.</p></div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-block">
+      <h2>Partner lockups</h2>
+      <p class="sg-note">Exported as standalone SVGs from the Figma vectors — shapes and wordmarks are the file's own, not redrawn. Heights follow the artboard (27 / 25 / 26 / 23 px); they sit on <code>--c-surface-alt</code> (#edeceb), which is also the colour of the Cursor cube's light faces.</p>
+      <div class="proof" style="max-width:1260px;margin-top:var(--sp-5)">
+        <p class="proof__label">Works with the AI tools you already use</p>
+        <ul class="proof__logos" aria-label="Supported tools">
+          <li><img src="assets/img/logos/cursor.svg" alt="Cursor" width="115" height="27" style="--h:27px"></li>
+          <li><img src="assets/img/logos/codex.svg" alt="Codex" width="112" height="25" style="--h:25px"></li>
+          <li><img src="assets/img/logos/claude.svg" alt="Claude" width="121" height="26" style="--h:26px"></li>
+          <li><img src="assets/img/logos/devoku-jet.svg" alt="Devoku Jet" width="159" height="23" style="--h:23px"></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sg-block" style="border-bottom:0">
+      <h2>Accessibility rules</h2>
+      <ul class="checklist">
+        <li class="checklist__item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10.5 8 14.5 16 5.5"/></svg>Body copy uses <code>--c-body</code> or darker (≥ 4.5:1 on white).</li>
+        <li class="checklist__item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10.5 8 14.5 16 5.5"/></svg>Orange and green are never used for small text; eyebrows use the <code>-ink</code> pairs.</li>
+        <li class="checklist__item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10.5 8 14.5 16 5.5"/></svg>Focus ring is always visible on keyboard navigation (2px, offset 3px).</li>
+        <li class="checklist__item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10.5 8 14.5 16 5.5"/></svg>Decorative collages are <code>aria-hidden</code>; product screenshots carry empty <code>alt</code> because they are illustrative.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

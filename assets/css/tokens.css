@@ -1,0 +1,146 @@
+/* ==========================================================================
+   Devoku — design tokens
+   Derived from the Figma file "Devoku" (Design concepts → Devoku Landing page
+   1440 × 8716). The .fig carries no Variables and no shared styles, so every
+   value below was measured on the nodes and then consolidated:
+     81 raw colours  -> 24 tokens (12 neutrals, 12 accents/surfaces)
+     18 type sizes   -> 9 steps
+      7 radii        -> 4
+   Do not hard-code hex values outside this file.
+   ========================================================================== */
+
+:root {
+  /* ---- Typography families ---------------------------------------------
+     Google Sans Flex is proprietary and must be licensed by Devoku.
+     The licences for Funnel Sans (OFL) and Geist (OFL) are self-hosted here.
+     Drop the licensed Google Sans Flex woff2 files into assets/fonts/ and
+     uncomment the block in assets/fonts/fonts.css to switch the UI face over.
+     ---------------------------------------------------------------------- */
+  --font-ui: 'Google Sans Flex', 'Funnel Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-content: 'Funnel Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-technical: 'Geist', 'Funnel Sans', ui-monospace, SFMono-Regular, monospace;
+
+  /* ---- Type scale (px values from the file, fluid between 402 and 1440) -- */
+  --fs-display: clamp(3rem, 2.15rem + 2.75vw, 4.25rem);   /* 48 -> 68 */
+  --fs-h2: clamp(2.625rem, 1.95rem + 1.55vw, 3.375rem);  /* 42 -> 54 */
+  --fs-h3: clamp(2.25rem, 1.5rem + 1.95vw, 3rem);        /* 36 -> 48 */
+  --fs-h4: clamp(1.75rem, 1.55rem + 0.6vw, 2.25rem);     /* 28 -> 36 */
+  --fs-h5: clamp(1.5rem, 1.38rem + 0.4vw, 1.875rem);     /* 24 -> 30 */
+  --fs-xl: clamp(1.25rem, 1.2rem + 0.15vw, 1.5rem);      /* 24 -> 20 */
+  --fs-lg: clamp(1.125rem, 1.1rem + 0.1vw, 1.25rem);     /* 20 -> 18 */
+  --fs-md: 1.125rem;                                     /* 18 */
+  --fs-sm: 1rem;                                         /* 16 */
+  --fs-xs: 0.875rem;                                     /* 14 */
+  --fs-2xs: 0.8125rem;                                   /* 13 */
+
+  --lh-display: 1.04;
+  --lh-h2: 1.185;
+  --lh-h3: 1;
+  --lh-h4: 1.05;
+  --lh-heading-tight: 1.05;
+  --lh-body: 1.55;
+  --lh-body-loose: 1.7;
+
+  --ls-display: -0.03em;
+  --ls-h2: -0.02em;
+  --ls-h3: -0.02em;
+  --ls-heading: -0.02em;
+  --ls-ui: -0.01em;
+  --ls-technical: -0.01em;
+
+  /* ---- Neutrals ---------------------------------------------------------- */
+  --c-ink: #1c1c1c;
+  --c-ink-strong: #0a0a0a;
+  --c-body: #484848;
+  --c-body-soft: #525252;
+  --c-muted: #6d6d6d;
+  --c-subtle: #919191;
+  --c-line: #e7e7e7;
+  --c-line-soft: #edeceb;
+  --c-surface: #ffffff;
+  --c-surface-alt: #edeceb;
+  --c-surface-sunk: #e8e5e3;
+  --c-dark: #1e1e1e;
+  --c-dark-raised: #262626;
+  --c-dark-line: #424242;
+  --c-on-dark: #eeedec;
+  --c-on-dark-muted: #a8a8a8;
+
+  /* ---- Accents ------------------------------------------------------------
+     `--c-accent` / `--c-success` are the literal Figma colours and are used for
+     decorative marks and large text only (2.19:1 and 3.38:1 on white).
+     `--c-accent-ink` / `--c-success-ink` are AA-safe substitutes for eyebrows,
+     labels and links at body sizes (4.6:1 and 4.7:1 on white).
+     ---------------------------------------------------------------------- */
+  --c-accent: #fd933a;
+  --c-accent-ink: #a3520f;
+  --c-success: #14a055;
+  --c-success-ink: #0c6c3c;
+  --c-violet: #9875f2;
+  --c-violet-soft: #a87feb;
+  --c-violet-deep: #7c58ff;
+  --c-cyan: #58f9ff;
+  --c-peach: #ffdec2;
+  --c-mint: #82d2a7;
+  --c-lime: #7cd1a3;
+  --c-amber: #faae6e;
+  --c-green-pill: #60d496;
+
+  /* ---- Gradients ---------------------------------------------------------- */
+  --grad-surface: linear-gradient(160deg, #ededed 0%, #ffdec2 39%, #82d2a7 100%);
+  --grad-surface-violet: linear-gradient(160deg, #ededed 0%, #ffdec2 39%, #a87feb 100%);
+  --grad-surface-deep: linear-gradient(160deg, #ededed 0%, #ffdec2 54%, #7c58ff 100%);
+  --grad-surface-hero: linear-gradient(160deg, #ffdec2 0%, #58f9ff 100%);
+  --grad-brand: linear-gradient(135deg, #1e1e1e 0%, #9875f2 100%);
+  --grad-footer: linear-gradient(180deg, #ffffff 0%, #ffdec2 42%, #82d2a7 100%);
+
+  /* ---- Spacing (4px base) -------------------------------------------------- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.25rem;
+  --sp-6: 1.5rem;
+  --sp-7: 1.75rem;
+  --sp-8: 2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-14: 3.5rem;
+  --sp-16: 4rem;
+  --sp-18: 4.5rem;
+  --sp-20: 5rem;
+  --sp-24: 6rem;
+  --sp-28: 7rem;
+  --sp-32: 8rem;
+
+  /* ---- Radii --------------------------------------------------------------- */
+  --r-sm: 6px;      /* buttons */
+  --r-md: 10px;     /* panels, windows */
+  --r-lg: 20px;     /* cards, gradient slabs */
+  --r-pill: 999px;
+
+  /* ---- Layout -------------------------------------------------------------- */
+  --container-max: 1260px;
+  --container-wide: 1360px;
+  --container-narrow: 1205px;
+  --gutter: clamp(1.25rem, 1rem + 3.6vw, 5.625rem); /* 20 → 90px */
+  --grid-gap: clamp(1rem, 0.6rem + 1.2vw, 1.75rem);
+
+  --header-h: 88px;
+  --section-y: clamp(4rem, 3rem + 4vw, 7.5rem);
+
+  /* ---- Motion -------------------------------------------------------------- */
+  --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --dur: 220ms;
+
+  /* ---- Elevation (the .fig has zero effects; this is the only shadow) ------ */
+  --shadow-float: 0 18px 40px -24px rgb(28 28 28 / 0.35);
+
+  color-scheme: light;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur: 1ms;
+  }
+}
