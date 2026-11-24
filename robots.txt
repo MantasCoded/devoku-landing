@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mantascoded.github.io/devoku-landing/sitemap.xml
